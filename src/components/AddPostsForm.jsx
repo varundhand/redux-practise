@@ -16,11 +16,12 @@ const AddPostsForm = () => {
   const onSavePostClicked = () => {
     if (title && content) {
       dispatch(
-        postAdded({
-          id:nanoid(), // it gives id, title and content
-          title,
-          content
-        })
+        // postAdded({ // we can handle this formating login in our slice through prepare callback
+        //   id:nanoid(), // it gives id, title and content
+        //   title,
+        //   content
+        // })
+        postAdded(title,content) // the strucutre of data is already formatted in slice through prepare callback
       )
       setTitle('') // setTitle and setContent back to empty string once post is saved
       setContent('')
