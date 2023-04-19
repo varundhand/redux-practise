@@ -21,12 +21,13 @@ export const postsSlice = createSlice({
       reducer(state,action){  // we use PREPARE callback to generate unique ids, format data, return object with payload, etc
       state.push(action.payload) // payload is the form data we dispatch the action  //! state.push works only within slice and it doesnt actually mutate the array
       },
-      prepare(title,content){
+      prepare(title,content,userId){
         return {
           payload: {
             id: nanoid(),
             title,
-            content
+            content,
+            userId
           }
         }
       }
